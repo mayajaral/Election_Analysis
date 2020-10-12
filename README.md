@@ -54,4 +54,5 @@ To do this, the program can read the headers of the .csv columns and determine i
 As the program already collects the votes cast in each county and votes cast for each candidate, using a dictionary of dictionaries to store the data would allow for a breakdown of the voting statistics by counties.
 This would involve creating a dictionary with each country being the key. Each key would lead to another dictionary, where the keys would be the possible candidates and they would lead to the votes. Then the existing code for vote counting can be utilized using the dictionary of dictionaries to collect the data of the voter breakdown of candidates by county. 
 > election_stats = {County:{Candidate:Number_Of_Votes}}
+
 This election breakdown by region-level can then be used to provide analysis of the national elections and account for the electoral college system by providing state by state wins. It would also be useful to provide data on which regions won or lost. 
