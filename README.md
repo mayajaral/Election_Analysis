@@ -13,7 +13,7 @@ Scenario: A Colorado Board of Elections employee has given a list of task to com
 - Data Source: election_results.csv
 - Software: Python 3.6.1, Visual Studio Code, 1.50.0
 
-## Summary
+## Audit Results
 The analysis of the election show that:
 - There were 369,711 votes cas in the election.
 ### County
@@ -40,8 +40,17 @@ The analysis of the election show that:
 - The winner of the election was:
     - Diana DeGette, who received 73.8% of the vote and 272,892 number of votes. 
  
- 
+## Audit Summary
+The script can be modified in many ways to make it viable to analyze any election at any level, provided the correct input format of the data.
+### Input
+The .csv file of the data must follow the format below and be named "election_results.csv":
+> Ballot ID,Region-Level,Candidate
 
-## Challenge Overview
+### Region-Level
+The current codes counts the votes at the region level and prints the results to a .txt file. After making the change in the Input format the code needs to be modified to be versitile to different levels of elections.
+To do this, the program can read the headers of the .csv columns and determine if the elections are county, state or national. This specification can then be used to specific if "county" or "state" or "district" should be the title in the print out.
 
-## Challenge Summary
+### Region-Level Statistics
+As the program already collects the votes cast in each county and votes cast for each candidate, using a dictionary of dictionaries to store the data would allow for a breakdown of the voting statistics by counties.
+This would involve creating a dictionary with each country being the key. Each key would lead to another dictionary, where the keys would be the possible candidates and they would lead to the votes. Then the existing code for vote counting can be utilized using the dictionary of dictionaries to collect the data of the voter breakdown of candidates by county. 
+> election_stats = {County:{Candidate:Number_Of_Votes}}
